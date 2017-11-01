@@ -1,7 +1,6 @@
 #/bin/bash
 
 DEBIAN_FRONTEND=noninteractive apt-get -y install supervisor \
-ssh \
 mariadb-server \
 mariadb-client \
 php7.0 \
@@ -25,4 +24,6 @@ php7.0-mbstring \
 php-gettext \
 php7.0-opcache \
 php-apcu \
-phpmyadmin
+phpmyadmin \
+bash-completion \
+unzip
