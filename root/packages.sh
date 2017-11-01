@@ -1,6 +1,7 @@
 #/bin/bash
 
 DEBIAN_FRONTEND=noninteractive apt-get -y install supervisor \
+ssh \
 mariadb-server \
 mariadb-client \
 php7.0 \
