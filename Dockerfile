@@ -1,6 +1,6 @@
 # FROM ubuntu:14.04
-FROM dockerfile/ubuntu
-MAINTAINER Ushio Shugo <ushio.s@gmail.com>
+FROM ubuntu
+MAINTAINER Igor V. Kruglenko <igor.kruglenko@gmail.com>
 
 # update repositories
 RUN apt-get -y update
