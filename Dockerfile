@@ -15,6 +15,9 @@ RUN rm -f /packages.sh
 # ssh settings
 RUN mkdir -p /var/run/sshd
 
+# workdir www
+VOLUME ["/var/www/html"]
+
 # middleware settings
 ADD ./root/etc/supervisor/conf.d/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 ADD ./root/etc/mysql/conf.d/bind-address.cnf /etc/mysql/conf.d/bind-address.cnf
