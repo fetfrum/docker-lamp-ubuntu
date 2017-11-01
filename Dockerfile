@@ -1,5 +1,5 @@
 # FROM ubuntu:14.04
-FROM ubuntu
+FROM ubuntu:14.04
 MAINTAINER Igor V. Kruglenko <igor.kruglenko@gmail.com>
 
 # update repositories
