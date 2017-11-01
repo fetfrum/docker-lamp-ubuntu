@@ -26,4 +26,5 @@ php7.0-opcache \
 php-apcu \
 phpmyadmin \
 bash-completion \
-unzip
+unzip \
+sudo
