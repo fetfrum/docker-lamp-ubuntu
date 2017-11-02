@@ -24,7 +24,7 @@ RUN echo 'root:changeme' | chpasswd
 RUN mkdir -p /root/.ssh && touch /root/.ssh/authorized_keys && chmod 700 /root/.ssh
 #ADD id_rsa.pub /root/.ssh/authorized_keys
 
-ADD phpinfo.php /var/www/html/
+ADD ./root/phpinfo.php /var/www/html/
 
 
 # workdir www
