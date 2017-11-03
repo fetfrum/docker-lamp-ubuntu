@@ -8,8 +8,6 @@ ADD ./root/phpinfo.php /var/www/html/
 VOLUME /var/lib/mysql
 VOLUME /root
 
-# update repositories
-RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
 COPY files/ /
 
@@ -38,14 +36,15 @@ ENV DISABLE_PHPMYADMIN=0 \
     MYSQL_QUERY_CACHE_SIZE=16M \
     MYSQL_QUERY_CACHE_LIMIT=1M
 
+# update repositories
+RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
 # install packages
 ADD ./root/packages.sh /packages.sh
-RUN chmod 755 /packages.sh 
-RUN /packages.sh 
+RUN sh /packages.sh
 
 # ssh settings
-RUN apt-get install -y openssh-server passwd && mkdir -p /var/run/sshd && \
+RUN apt-get install -y openssh-server openssh-client passwd && mkdir -p /var/run/sshd && \
 sed -ri 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && \
 echo 'root:changeme' | chpasswd && \
 mkdir -p /root/.ssh && \
