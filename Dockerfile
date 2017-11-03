@@ -8,7 +8,6 @@ VOLUME ["/var/www/"]
 ADD ./root/phpinfo.php /var/www/html/
 VOLUME ["/var/lib/mysql"]
 VOLUME ["/root"]
-VOLUME ["/etc"]
 
 # update repositories
 RUN apt-get -y update
