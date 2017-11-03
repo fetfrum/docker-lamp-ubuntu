@@ -45,7 +45,7 @@ RUN chmod 755 /packages.sh
 RUN /packages.sh 
 
 # ssh settings
-RUN apt-get install -y openssh-server openssh-client passwd && mkdir -p /var/run/sshd && \
+RUN apt-get install -y openssh-server passwd && mkdir -p /var/run/sshd && \
 sed -ri 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && \
 echo 'root:changeme' | chpasswd && \
 mkdir -p /root/.ssh && \
