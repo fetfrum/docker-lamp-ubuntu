@@ -27,4 +27,17 @@ php-apcu \
 phpmyadmin \
 bash-completion \
 unzip \
-sudo
+nano \
+sudo \
+mc
+
+
+
+cp /etc/skel/.bash_logout /root/
+cp /etc/skel/.bashrc /root/
+cp /etc/skel/.profile /root/
+
+ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
+a2enconf  phpmyadmin
+
+rm /packages.sh

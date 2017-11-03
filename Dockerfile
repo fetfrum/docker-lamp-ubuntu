@@ -8,6 +8,7 @@ ADD ./root/phpinfo.php /var/www/html/
 VOLUME ["/var/lib/mysql"]
 VOLUME ["/root"]
 
+
 # update repositories
 RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
