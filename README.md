@@ -31,16 +31,24 @@ Installed applications
 - php-gettext 
 - php7.0-opcache 
 - php-apcu 
-phpmyadmin 
-bash-completion 
-unzip 
-sudo
+- phpmyadmin 
+- bash-completion 
+- unzip 
+- sudo
+- Midnight Commander
+- nano
 
 
 Usage
 -----
 
-    docker run -d -p 80:80 -p 3306:3306 -p 22:22 -p 443:443 -v /srv/lamp/mysql:/var/lib/mysql -v /srv/lamp/root:/root --name lamp-ubuntu fetfrum/docker-lamp-ubuntu
+Linux or macOS
+
+    docker run -d -p 80:80 -p 3306:3306 -p 22:22 -p 443:443 -v /srv/lamp/mysql:/var/lib/mysql -v /srv/lamp/root:/root -v /srv/lamp/html:/var/www/html --name lamp-ubuntu fetfrum/docker-lamp-ubuntu
+
+Windows
+
+    docker run -d -p 80:80 -p 3306:3306 -p 22:22 -p 443:443 -v /c/srv/lamp/mysql:/var/lib/mysql -v /c/srv/lamp/root:/root -v /c/srv/lamp/html:/var/www/html --name lamp-ubuntu fetfrum/docker-lamp-ubuntu
 
 
 #### Access to mysql-server from host.
