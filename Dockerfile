@@ -8,6 +8,9 @@ ADD ./root/phpinfo.php /var/www/html/
 VOLUME /var/lib/mysql
 VOLUME /root
 
+# update repositories
+RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
+
 COPY files/ /
 
 RUN \
@@ -35,8 +38,6 @@ ENV DISABLE_PHPMYADMIN=0 \
     MYSQL_QUERY_CACHE_SIZE=16M \
     MYSQL_QUERY_CACHE_LIMIT=1M
 
-# update repositories
-RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
 # install packages
 ADD ./root/packages.sh /packages.sh
