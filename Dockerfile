@@ -18,7 +18,7 @@ RUN chmod 755 /packages.sh
 RUN /packages.sh 
 
 # ssh settings
-RUN apt-get install -y openssh-server openssh-client passwd && mkdir -p /var/run/sshd && sed -ri 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && echo 'root:changeme' | chpasswd && mkdir -p /root/.ssh && touch /root/.ssh/authorized_keys && chmod 700 /root/.ssh
+RUN apt-get install -y openssh-server openssh-client passwd && mkdir -p /var/run/sshd && sed -ri 's/PermitRootLogin prohibit-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && echo 'root:changeme' | chpasswd && mkdir -p /root/.ssh && touch /root/.ssh/authorized_keys && chmod 700 /root/.ssh
 
 #RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key && ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key
 
