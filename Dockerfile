@@ -17,7 +17,7 @@ RUN \
   groupadd mysql && \
   useradd -g mysql mysql && \
   apt-get update && \
-  apt-get install -y gettext-base mariadb-server pwgen && \
+  apt-get install -y gettext-base mariadb-server pwgen python-pip && \
   rm -rf /var/lib/apt/lists/* && \
   mkdir --mode=0777 /var/run/mysqld && \
   chown mysql:mysql /var/lib/mysql && \
