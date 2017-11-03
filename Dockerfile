@@ -16,7 +16,6 @@ RUN \
   apt-get update && \
   apt-get install -y gettext-base mariadb-server pwgen && \
   rm -rf /var/lib/apt/lists/* && \
-  rm -rf /var/lib/mysql && \
   mkdir --mode=0777 /var/lib/mysql /var/run/mysqld && \
   chown mysql:mysql /var/lib/mysql && \
   printf '[mysqld]\nskip-name-resolve\n' > /etc/mysql/conf.d/skip-name-resolve.cnf && \
