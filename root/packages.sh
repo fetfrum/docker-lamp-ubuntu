@@ -29,13 +29,16 @@ bash-completion \
 unzip \
 nano \
 sudo \
+locales \
 mc
 
-
+echo LANG=en_US.UTF-8 > /etc/default/locale
 
 cp /etc/skel/.bash_logout /root/
 cp /etc/skel/.bashrc /root/
 cp /etc/skel/.profile /root/
+
+mysql_install_db
 
 ln -s /etc/phpmyadmin/apache.conf /etc/apache2/conf-available/phpmyadmin.conf
 a2enconf  phpmyadmin

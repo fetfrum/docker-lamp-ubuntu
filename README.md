@@ -61,7 +61,8 @@ You must add remote user before this command.
 
     http://localhost:80
 
-#### Access to apache2 from host.
+#### Access to ssh from host.
     
     ssh root@localhost
-    ssh root@localhost
+    
+Password: *changeme*
