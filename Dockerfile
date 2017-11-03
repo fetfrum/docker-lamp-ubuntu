@@ -2,6 +2,14 @@
 FROM ubuntu:16.04
 MAINTAINER Igor V. Kruglenko <igor.kruglenko@gmail.com>
 
+
+# workdir www
+VOLUME ["/var/www/"]
+ADD ./root/phpinfo.php /var/www/html/
+VOLUME ["/var/lib/mysql"]
+VOLUME ["/root"]
+VOLUME ["/etc"]
+
 # update repositories
 RUN apt-get -y update
 RUN DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
@@ -26,12 +34,7 @@ RUN mkdir -p /root/.ssh && touch /root/.ssh/authorized_keys && chmod 700 /root/.
 
 
 
-# workdir www
-VOLUME ["/var/www/html"]
-ADD ./root/phpinfo.php /var/www/html/
-VOLUME ["/var/lib/mysql"]
-VOLUME ["/root"]
-VOLUME ["/etc"]
+
 
 
 # middleware settings
