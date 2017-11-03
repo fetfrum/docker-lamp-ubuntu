@@ -13,7 +13,8 @@ RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
 # install packages
 ADD ./root/packages.sh /packages.sh
-RUN chmod 755 /packages.sh && /packages.sh 
+RUN chmod 755 /packages.sh 
+RUN /packages.sh 
 
 # ssh settings
 RUN apt-get install -y openssh-server openssh-client passwd && mkdir -p /var/run/sshd && sed -ri 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && echo 'root:changeme' | chpasswd && mkdir -p /root/.ssh && touch /root/.ssh/authorized_keys && chmod 700 /root/.ssh
