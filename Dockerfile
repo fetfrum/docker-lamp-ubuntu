@@ -13,7 +13,7 @@ RUN apt-get -y update && DEBIAN_FRONTEND=noninteractive apt-get -y upgrade
 
 # install packages
 ADD ./root/packages.sh /packages.sh
-RUN chmod 755 /packages.sh && /packages.sh && rm -f /packages.sh
+RUN chmod 755 /packages.sh && /packages.sh 
 
 # ssh settings
 RUN apt-get install -y openssh-server openssh-client passwd && mkdir -p /var/run/sshd
