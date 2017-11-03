@@ -16,13 +16,11 @@ ADD ./root/packages.sh /packages.sh
 RUN chmod 755 /packages.sh && /packages.sh 
 
 # ssh settings
-RUN apt-get install -y openssh-server openssh-client passwd && mkdir -p /var/run/sshd
+RUN apt-get install -y openssh-server openssh-client passwd && mkdir -p /var/run/sshd && sed -ri 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && echo 'root:changeme' | chpasswd && mkdir -p /root/.ssh && touch /root/.ssh/authorized_keys && chmod 700 /root/.ssh
 
 #RUN ssh-keygen -q -N "" -t dsa -f /etc/ssh/ssh_host_dsa_key && ssh-keygen -q -N "" -t rsa -f /etc/ssh/ssh_host_rsa_key
-RUN sed -ri 's/PermitRootLogin without-password/PermitRootLogin yes/g' /etc/ssh/sshd_config && echo 'root:changeme' | chpasswd
 
 # Put your own public key at id_rsa.pub for key-based login.
-RUN mkdir -p /root/.ssh && touch /root/.ssh/authorized_keys && chmod 700 /root/.ssh
 #ADD id_rsa.pub /root/.ssh/authorized_keys
 
 # middleware settings
