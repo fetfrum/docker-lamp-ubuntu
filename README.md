@@ -46,7 +46,7 @@ sudo
 Usage
 -----
 
-    docker run -d -p 80:80 -p 3306:3306 -p 22:22 -p 443:443 -v /srv/lamp/etc:/etc -v /srv/lamp/mysql:/var/lib/mysql -v /srv/lamp/root:/root --name lamp-ubuntu fetfrum/lamp-ubuntu
+    docker run -d -p 80:80 -p 3306:3306 -p 22:22 -p 443:443 -v /srv/lamp/etc:/etc -v /srv/lamp/mysql:/var/lib/mysql -v /srv/lamp/root:/root --name lamp-ubuntu fetfrum/docker-lamp-ubuntu
 
 
 #### Access to mysql-server from host.
